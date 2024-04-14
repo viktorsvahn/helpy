@@ -26,5 +26,12 @@ dependencies = [
     "matplotlib"
 ]
 
+[options]
+packages = find:
+
+[options.packages.find]
+include = plot
+
 [project.urls]
 repository = "https://github.com/viktorsvahn/helpy.git"
+
