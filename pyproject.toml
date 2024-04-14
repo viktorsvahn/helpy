@@ -13,7 +13,7 @@ dev_template = "{tag}"
 where = ["src"]
 
 [project]
-name = "helper_funcs"
+name = "helpy"
 dynamic = ["version"]
 maintainers = [
     {name = "Viktor Svahn", email="svahnv@gmail.com"}
@@ -27,4 +27,4 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "https://github.com/viktorsvahn/helpy"
+repository = "https://github.com/viktorsvahn/helpy.git"
