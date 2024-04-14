@@ -56,8 +56,8 @@ def color_label(
 
 	# Size relative to plot limits
 	if rel_size:
-		width = (ax.get_xlim()[1]-ax.get_xlim()[0])*width
-		height = (ax.get_ylim()[1]-ax.get_ylim()[0])*height
+		width *= (ax.get_xlim()[1]-ax.get_xlim()[0])width
+		height *= (ax.get_ylim()[1]-ax.get_ylim()[0])height
 	
 	# Color selection (Paul Tol)
 	bright = [
