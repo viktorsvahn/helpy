@@ -5,26 +5,24 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "helpy"
+dynamic = ["version"]
+authors = [{name = "Viktor Svahn", email="svahnv@gmail.com"}]
+maintainers = [{name = "Viktor Svahn", email="svahnv@gmail.com"}]
+dependencies = [
+    "matplotlib"
+]
+
 [tool.setuptools-git-versioning]
 enabled = true
 dev_template = "{tag}"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+#[tool.setuptools.packages]
+#find = {}
 
-[project]
-name = "helpy"
-dynamic = ["version"]
-maintainers = [
-    {name = "Viktor Svahn", email="svahnv@gmail.com"}
-]
-requires-python = ">=3.8"
-description = "A set of helper functions for various situations."
-readme = {file = "README.md", content-type = "text/markdown"}
-license = {file = "LICENSE"}
-dependencies = [
-    "matplotlib"
-]
+#[tool.setuptools.package-dir]
+#plot = "src/plot"
 
 [project.urls]
 repository = "https://github.com/viktorsvahn/helpy"
