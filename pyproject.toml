@@ -1,29 +1,28 @@
 [build-system]
 requires = [
-    "setuptools",
+    "setuptools>=61.0",
     "setuptools-git-versioning"
 ]
 build-backend = "setuptools.build_meta"
-
-[project]
-name = "helpy"
-dynamic = ["version"]
-authors = [{name = "Viktor Svahn", email="svahnv@gmail.com"}]
-maintainers = [{name = "Viktor Svahn", email="svahnv@gmail.com"}]
-dependencies = [
-    "matplotlib"
-]
 
 [tool.setuptools-git-versioning]
 enabled = true
 dev_template = "{tag}"
 
-#[tool.setuptools.packages]
-#find = {}
-
-#[tool.setuptools.package-dir]
-#plot = "src/plot"
+[project]
+name = "helpy"
+version = "0.0.1"
+authors = [
+  { name="Viktor Svahn", email="svahnv@gmail.com" },
+]
+description = "A set of helper functions for various situations."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 
 [project.urls]
 repository = "https://github.com/viktorsvahn/helpy"
-
