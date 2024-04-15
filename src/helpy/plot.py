@@ -17,6 +17,7 @@ def color_label(
 		alpha=1, 
 		halign='left',
 		valign='bottom',
+		orientation='horizontal',
 		zorder=None,
 		clip_on=True
 	):
@@ -35,9 +36,10 @@ def color_label(
 	alpha -- opacity of patches
 	halign -- horizontal alignment of patch series (default left)
 	valign -- vertical alignment of patch series (default bottom)
+	orientation -- sets the orientation of the patch series (default horizontal)
 	zorder -- assigns the layer that the patches are a part of (one above 
 	          current max of figure)
-	clip_on -- Allow/disallow crossing of axis borders (default False)
+	clip_on -- allow/disallow crossing of axis borders (default False)
 
 	The color 'bright', 'light' and 'medium_contrast' were created by Paul Tol.	
 	For more information, please refer to:
@@ -123,14 +125,23 @@ def color_label(
 	elif valign == 'center':
 		posy -= height/2
 
+	# Orientation control
+	if orientation == 'horizontal':
+		k=1
+		a=0
+		oriented_width, oriented_height = width, height
+	elif orientation == 'vertical':
+		k=-1
+		a=90
+		oriented_width, oriented_height = height, width
 
 	# Add patches with labels
 	for i, label in enumerate(labels):
 		rect = ax.add_patch(
 			Rectangle(
-				(posx+width*i, posy),
-				width,
-				height,
+				(posx+width*i, posy)[::k],
+				oriented_width,
+				oriented_height,
 				color=color[i],
 				alpha=alpha,
 				zorder=zorder,
@@ -139,11 +150,12 @@ def color_label(
 		)
 		ax.annotate(
 			f'{label}',
-			(posx+width*i, posy),
-			(posx+width*i+width*1/2, posy+height/2),
+			(posx+oriented_width*i, posy)[::k],
+			(posx+width*i+width*1/2, posy+height/2)[::k],
 			color=fontcolor,
 			ha='center',
 			va='center',
 			zorder=zorder,
-			annotation_clip=clip_on
+			annotation_clip=clip_on,
+			rotation=a
 		)
