@@ -3,8 +3,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-fig, ax = plt.subplots()
-
 def color_label(
 		ax,
 		labels,
