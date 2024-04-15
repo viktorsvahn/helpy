@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
@@ -16,7 +17,8 @@ def color_label(
 		alpha=1, 
 		halign='left',
 		valign='bottom',
-		zorder=None
+		zorder=None,
+		clip_on=True
 	):
 	"""Adds a series of annotated color patches to an axis object.
 
@@ -35,6 +37,7 @@ def color_label(
 	valign -- vertical alignment of patch series (default bottom)
 	zorder -- assigns the layer that the patches are a part of (one above 
 	          current max of figure)
+	clip_on -- Allow/disallow crossing of axis borders (default False)
 
 	The color 'bright', 'light' and 'medium_contrast' were created by Paul Tol.	
 	For more information, please refer to:
@@ -120,6 +123,7 @@ def color_label(
 	elif valign == 'center':
 		posy -= height/2
 
+
 	# Add patches with labels
 	for i, label in enumerate(labels):
 		rect = ax.add_patch(
@@ -129,7 +133,8 @@ def color_label(
 				height,
 				color=color[i],
 				alpha=alpha,
-				zorder=zorder
+				zorder=zorder,
+				clip_on=clip_on
 			)
 		)
 		ax.annotate(
@@ -139,5 +144,6 @@ def color_label(
 			color=fontcolor,
 			ha='center',
 			va='center',
-			zorder=zorder
+			zorder=zorder,
+			annotation_clip=clip_on
 		)
