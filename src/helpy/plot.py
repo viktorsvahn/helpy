@@ -153,6 +153,7 @@ def color_label(
 			(posx+oriented_width*i, posy)[::k],
 			(posx+width*i+width*1/2, posy+height/2)[::k],
 			color=fontcolor,
+			fontsize=fontsize,
 			ha='center',
 			va='center',
 			zorder=zorder,
